@@ -1,0 +1,10 @@
+.venv/
+cache/
+.ipynb_checkpoints/
+__pycache__/
+data/**/*.wav
+data/**/*.flac
+data/**/*.ogg
+data/**/*.mp3
+test_results/*.csv
+data/test_labels.csv
