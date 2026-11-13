@@ -1,26 +1,35 @@
 # Bird species classification practical
 
-Classify 5-second audio recordings into one of three bird species.
+Classify 5-second audio recordings into one of three bird species, or "Nothing heard" if no bird is calling.
 
 ## Data
 
 ```
 data/
   unlabelled/   4800 clips, no labels
-  labelled/     100 clips + labels.csv (columns: filename, species)
-  test/         100 clips, no labels — these are what you are marked on
+  labelled/     200 clips + labels.csv (columns: filename, species)
+  test/         200 clips, no labels — these are what you are marked on
 ```
-
-## Two approaches
-
-- `01_supervised.ipynb`: train a small CNN directly on the 100 labelled clips.
-- `02_autoencoder.ipynb`: train a CNN autoencoder on the 4800 unlabelled clips, then fit a linear probe on its embeddings using the 100 labelled clips.
-
-Both notebooks end by predicting the test set and writing `test_results/<group>_<model>.csv`. Set `GROUP_NAME` in the last cell first.
 
 ## Setup
 
-Hopefully you can all access this gws space
-There is already a .venv in this folder with the packages in the pyproject.toml
-Each group should make their own folder here to put their code in
-Put your test predictions in /test_results/ - I will grade them
+This folder is read-only, apart from `groups/` and `test_results/`. Work in your own group folder:
+
+```bash
+cd /gws/ssde/j25b/iecdt/bio_practicals/bioacoustic
+mkdir groups/<group_name>
+cp 01_supervised.ipynb 02_autoencoder.ipynb groups/<group_name>/
+```
+
+Then open the notebooks from your group folder and select the existing `.venv` in this folder as the kernel (`/gws/ssde/j25b/iecdt/bio_practicals/bioacoustic/.venv/bin/python`). It already has the packages in `pyproject.toml`.
+
+The notebooks use absolute paths, so your copies read the shared `data/` and `cache/` and write to the shared `test_results/` without any changes.
+
+Put your test predictions in `test_results/` (the last cell of each notebook does this) — I will grade them. You can only delete or rename your own files in `groups/` and `test_results/`, not other groups'.
+
+## Two approaches
+
+- `01_supervised.ipynb`: train a small CNN directly on the 200 labelled clips.
+- `02_autoencoder.ipynb`: train a CNN autoencoder on the 4800 unlabelled clips, then fit a small MLP probe on its embeddings using the 200 labelled clips.
+
+Both notebooks end by predicting the test set and writing `test_results/<group>_<model>.csv`. Set `GROUP_NAME` in the last cell first.
