@@ -2,7 +2,7 @@
 
 ## 01_supervised.ipynb
 
-**Data augmentation**. Apply random, label-preserving transformations to each spectrogram during training, such as shifting it in time, masking out a few frequency bands or time frames (as in SpecAugment), or adding background noise. Because the model sees a slightly different version of each clip every epoch, it is encouraged to learn features of the bird call that are invariant to these changes, rather than overfitting to the small set of training clips.
+**Data augmentation**. Apply random transformations to each spectrogram during training, such as shifting it in time, masking out a few frequency bands or time frames (as in SpecAugment), or adding background noise. Because the model sees a slightly different version of each clip every epoch, it is encouraged to learn features of the bird call that are invariant to these changes, rather than overfitting to the small set of training clips.
 
 **Batch normalisation, max pooling and dropout**. Batch normalisation normalises the activations of each layer over the mini-batch, which tends to stabilise and speed up training. Max pooling downsamples each feature map by keeping the strongest response in each local patch, making the model less sensitive to small shifts of a call in time or frequency. Dropout randomly zeroes a fraction of the inputs to the final layer during training, which discourages the model from relying on a small number of features and acts as a regulariser. All three can (but won't necessarily) improve generalisation to unseen clips.
 
