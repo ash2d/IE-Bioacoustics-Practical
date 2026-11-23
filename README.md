@@ -37,4 +37,5 @@ data/
 ## Submitting the predictions
 
 Both notebooks end by predicting the test set and writing `test_results/<group>_<model>.csv`. Set `GROUP_NAME` in the last cell first. Submissions should follow the csv format of the notebook - see the `tested_<model>.csv`
+
 By 4pm on Tuesday I will grade all of the submissions in `test_results/`; the winning group gets a chocolate bar - I reserve the right to disqualify submissions if i suspect any funny business.
