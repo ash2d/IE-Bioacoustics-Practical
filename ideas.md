@@ -1,5 +1,9 @@
 # Ideas for improving the models
 
+## Both
+
+Change model layer sizes, use different architectures, change data training validation splits.
+
 ## 01_supervised.ipynb
 
 **Data augmentation**. Apply random transformations to each spectrogram during training, such as shifting it in time, masking out a few frequency bands or time frames (as in SpecAugment), or adding background noise. Because the model sees a slightly different version of each clip every epoch, it is encouraged to learn features of the bird call that are invariant to these changes, rather than overfitting to the small set of training clips.

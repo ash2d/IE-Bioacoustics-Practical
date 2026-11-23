@@ -53,6 +53,8 @@ data/
 - `01_supervised.ipynb`: train a small CNN directly on the 200 labelled clips.
 - `02_autoencoder.ipynb`: train a CNN autoencoder on the 4800 unlabelled clips, then fit a small MLP probe on its embeddings using the 200 labelled clips.
 
+See `ideas.md` for some ways to improve the models
+
 ## Submitting the predictions
 
 Both notebooks end by predicting the test set and writing `test_results/<group>_<model>.csv`. Set `GROUP_NAME` in the last cell first. Submissions should follow the csv format of the notebook - see the `tested_<model>.csv`
