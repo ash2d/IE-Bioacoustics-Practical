@@ -4,7 +4,26 @@ Classify 5-second audio recordings into one of three bird species, or "Nothing h
 
 ## Setup
 
-SSH into Jasmin
+SSH into the JASMIN GPU node `gpuhost001` by going through a login node. The `/gws/...` folders aren't visible from the login node.
+
+First load your JASMIN SSH key into an agent on your laptop, so it can be forwarded to the second hop:
+
+```bash
+eval $(ssh-agent -s)          # start the agent (macOS usually has one running already)
+ssh-add ~/.ssh/id_ecdsa       # use the path of the private key you uploaded to JASMIN
+ssh-add -l                    # check the key is listed
+```
+
+On Windows, run PowerShell as admin once: `Get-Service ssh-agent | Set-Service -StartupType Automatic; Start-Service ssh-agent`, then `ssh-add $HOME\.ssh\id_ecdsa`.
+
+Then connect:
+
+```bash
+ssh -A <jasmin_username>@login-01.jasmin.ac.uk
+ssh gpuhost001.jc.rl.ac.uk
+```
+
+or in one step: `ssh -J <jasmin_username>@login-01.jasmin.ac.uk <jasmin_username>@gpuhost001.jc.rl.ac.uk`.
 This folder is read-only, apart from `groups/` and `test_results/`. Work in your own group folder:
 
 ```bash
